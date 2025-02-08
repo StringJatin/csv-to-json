@@ -4,9 +4,13 @@ const CSVToJSON = require('./csvToJson');
 const path = require('path');
 
 const app = express();
-const port = 3000;
+const port = 8000;
 
 const upload = multer({ dest: 'uploads/' });
+
+app.get("/", (req, res) => {
+    res.send("Server is running successfully!");
+});
 
 app.post('/convert', upload.single('csvfile'), (req, res) => {
     if (!req.file) {
@@ -29,6 +33,8 @@ app.post('/convert', upload.single('csvfile'), (req, res) => {
     }
 });
 
-app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
-});
+app.listen(4000, () => {
+    console.log('Server is running on port 4000');
+  });
+
+  module.exports = app;
