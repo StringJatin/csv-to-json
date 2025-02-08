@@ -63,6 +63,10 @@ class CSVToJSON {
         const csvData = fs.readFileSync(filePath, 'utf8');
         return this.parse(csvData);
     }
+
+    convert(csvData) {
+        return this.parse(csvData);
+    }
 }
 
 module.exports = CSVToJSON;
